@@ -28,7 +28,7 @@ class ChatDetails extends React.Component {
     this.chatMessages = [];
     this.chatId = null;
     this.chatOwnerId = null;
-    this.state = { loaded: false };
+    this.state = { loaded: true };
     this.options = null;
 
 
@@ -90,6 +90,20 @@ class ChatDetails extends React.Component {
     this.chatId = this.data[this.props.chatIndex].id;
     this.chatOwnerId = this.data[this.props.chatIndex].id_members1;
   }
+  determineTheStyleOfMessage(item) {
+    if (item.authorId == this.chatOwnerId) {
+      return (<li className="replies">
+        <img src={this.data[this.props.chatIndex].img_members1} alt="" />
+        <FroalaEditorView model={item.body} />
+      </li>)
+    }
+    else {
+      return (<li className="sent">
+        <img src={this.data[this.props.chatIndex].img_members2} alt="" />
+        <FroalaEditorView model={item.body} />
+      </li>)
+    }
+  }
   render() {
     return (
 
@@ -98,11 +112,9 @@ class ChatDetails extends React.Component {
           <ul>
             {this.chatMessages.map(function (item, index) {
 
-              return (<li className="replies">
-                <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-                <FroalaEditorView model={item.body} />
-              </li>)
-            })}
+              return this.determineTheStyleOfMessage(item);
+            }.bind(this)
+            )}
           </ul>
         </div>
         {/* <div class="send">
@@ -117,7 +129,7 @@ class ChatDetails extends React.Component {
         </div> */}
         <div className="message-input">
           <div className="wrap">
-          <FroalaEditor tag='textarea' options={this.options} config={this.config} model={this.state.model}
+            <FroalaEditor tag='textarea' options={this.options} config={this.config} model={this.state.model}
               onModelChange={this.handleModelChange}>
             </FroalaEditor>
             <button onClick={this.sendMessage} class="send-button"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>

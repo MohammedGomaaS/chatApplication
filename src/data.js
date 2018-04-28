@@ -3,7 +3,7 @@ var data = [{
     id_members1: "1",
     id_members2: "2",
     img_members1:"http://emilcarlsson.se/assets/harveyspecter.png",
-    img_members2:"http://emilcarlsson.se/assets/harveyspecter.png",
+    img_members2:"https://i.froala.com/download/1fb41d2a9116614603a61783b9f633a5c0faf372.jpeg?1524950005",
     name: [
         "Omar",
         "Mohamed"
@@ -11,22 +11,12 @@ var data = [{
     messages: [
         {
            authorId:1,
-            body: "salam 3likom",
+            body: "<p>salam 3likom</p>",
             create_at: ""
         },
         {
             authorId:2,
-            body: "Wa3likom salam",
-            create_at: ""
-        },
-        {
-            authorId:1,
-            body: "wach teshak",
-            create_at: ""
-        },
-        {
-            authorId:2,
-            body: "test msg",
+            body: "<p>Wa3likom salam</p>",
             create_at: ""
         }
     ]
@@ -37,7 +27,7 @@ var data = [{
     id_members1: "1",
     id_members2: "3",
     img_members1:"http://emilcarlsson.se/assets/harveyspecter.png",
-    img_members2:"http://emilcarlsson.se/assets/harveyspecter.png",
+    img_members2:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbFpvm4ZV12u-hff1YQacKYpPRfV_m3QcJaneIqy6c3d7lc3OiCA",
     name: [
         "Omar",
         "Ali"
@@ -45,22 +35,12 @@ var data = [{
     messages: [
         {
             authorId:1,
-            body: "salam 3likom2",
+            body: "<p>salam 3likom2</p>",
             create_at: ""
         },
         {
             authorId:3,
-            body: "Wa3likom salam2",
-            create_at: ""
-        },
-        {
-            authorId:1,
-            body: "wach teshak2",
-            create_at: ""
-        },
-        {
-            authorId:3,
-            body: "test msg2",
+            body: "<p>Wa3likom salam2</p>",
             create_at: ""
         }
     ]
