@@ -90,16 +90,16 @@ class ChatDetails extends React.Component {
     this.chatId = this.data[this.props.chatIndex].id;
     this.chatOwnerId = this.data[this.props.chatIndex].id_members1;
   }
-  determineTheStyleOfMessage(item) {
+  determineTheStyleOfMessage(item,index) {
     if (item.authorId == this.chatOwnerId) {
-      return (<li className="replies">
-        <img src={this.data[this.props.chatIndex].img_members1} alt="" />
+      return (<li className="replies" key={index}>
+        <img src={this.data[this.props.chatIndex].img_members1} alt="" class="circle"/>
         <FroalaEditorView model={item.body} />
       </li>)
     }
     else {
-      return (<li className="sent">
-        <img src={this.data[this.props.chatIndex].img_members2} alt="" />
+      return (<li className="sent" key={index}>
+        <img src={this.data[this.props.chatIndex].img_members2} alt="" class="circle"/>
         <FroalaEditorView model={item.body} />
       </li>)
     }
@@ -112,27 +112,18 @@ class ChatDetails extends React.Component {
           <ul>
             {this.chatMessages.map(function (item, index) {
 
-              return this.determineTheStyleOfMessage(item);
+              return this.determineTheStyleOfMessage(item,index);
             }.bind(this)
             )}
           </ul>
         </div>
-        {/* <div class="send">
-          <div class="editor">
-
-            <FroalaEditor tag='textarea' options={this.options} config={this.config} model={this.state.model}
-              onModelChange={this.handleModelChange}>
-            </FroalaEditor>
-          </div>
-          <div class="editor-button">
-          </div>
-        </div> */}
+       
         <div className="message-input">
           <div className="wrap">
             <FroalaEditor tag='textarea' options={this.options} config={this.config} model={this.state.model}
               onModelChange={this.handleModelChange}>
             </FroalaEditor>
-            <button onClick={this.sendMessage} class="send-button"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
+            <button onClick={this.sendMessage} className="send-button"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
           </div>
         </div>
       </div>
