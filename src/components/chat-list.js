@@ -13,32 +13,47 @@ class ChatList extends React.Component {
 
     this.props.handler(index)
   }
-   
-   getItems() {
-    this.chatList = this.props.chatList;
-     let rows=[];
-    for (let i = 0; i < this.chatList.length; i++) {
 
-      rows.push(<li key={i} onClick={this.selectChat.bind(this,i)}>{this.chatList[i].name}</li>)
-  }
+  getItems() {
+    this.chatList = this.props.chatList;
+    let rows = [];
+    for (let i = 0; i < this.chatList.length; i++) {
+     
+      rows.push(<li className="contact" key={i} onClick={this.selectChat.bind(this, i)}>
+        <div className="wrap">
+        <img src={this.chatList[i].img} alt="" />
+          <div className="meta">
+            <p className="name">{this.chatList[i].name}</p>
+
+          </div>
+        </div>
+      </li>)
+    }
     return rows;
-}
+  }
   render() {
     this.chatList = this.props.chatList;
-    
-    
+
+
     return (
-      <div>
-         
-        <ul >
-
-          {this.getItems().map(function(i,e){
-            return i;
-          })}
 
 
-        </ul>
+
+
+
+
+
+      <div id="sidepanel">
+        <div id="contacts">
+          <ul>
+            {this.getItems().map(function (i, e) {
+              return i;
+            })}
+          </ul>
+        </div>
+
       </div>
+
     );
   }
 }

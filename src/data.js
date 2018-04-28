@@ -2,6 +2,8 @@ var data = [{
     id: 1,
     id_members1: "1",
     id_members2: "2",
+    img_members1:"http://emilcarlsson.se/assets/harveyspecter.png",
+    img_members2:"http://emilcarlsson.se/assets/harveyspecter.png",
     name: [
         "Omar",
         "Mohamed"
@@ -34,6 +36,8 @@ var data = [{
     id: 1,
     id_members1: "1",
     id_members2: "3",
+    img_members1:"http://emilcarlsson.se/assets/harveyspecter.png",
+    img_members2:"http://emilcarlsson.se/assets/harveyspecter.png",
     name: [
         "Omar",
         "Ali"

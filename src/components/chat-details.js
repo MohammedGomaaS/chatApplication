@@ -35,11 +35,11 @@ class ChatDetails extends React.Component {
     this.config = {
       placeholderText: 'Type your message here.',
       charCounterCount: false,
-     
-      toolbarButtons: ["emoticons", "image","quickInsert", 'insertImage'],
+
+      toolbarButtons: ["emoticons", "image", "quickInsert", 'insertImage'],
       quickInsertButtons: ['image'],
-      pluginsEnabled: ['quickInsert', 'image',"emoticons"],
-      toolbarBottom: true,
+      pluginsEnabled: ['quickInsert', 'image', "emoticons"],
+      toolbarBottom: false,
     }
 
     this.handleModelChange = this.handleModelChange.bind(this);
@@ -91,24 +91,40 @@ class ChatDetails extends React.Component {
     this.chatOwnerId = this.data[this.props.chatIndex].id_members1;
   }
   render() {
-
-
-
-
     return (
-      <div>
 
-        {this.chatMessages.map(function (item, index) {
+      <div className="content">
+        <div className="messages">
+          <ul>
+            {this.chatMessages.map(function (item, index) {
 
-          return <FroalaEditorView model={item.body} />
-        })}
-
-        <div className="fr-view">
+              return (<li className="replies">
+                <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                <FroalaEditorView model={item.body} />
+              </li>)
+            })}
+          </ul>
         </div>
-        <FroalaEditor tag='textarea' options={this.options} config={this.config} model={this.state.model}
-          onModelChange={this.handleModelChange}></FroalaEditor>
-        <button onClick={this.sendMessage} >click</button>
+        {/* <div class="send">
+          <div class="editor">
+
+            <FroalaEditor tag='textarea' options={this.options} config={this.config} model={this.state.model}
+              onModelChange={this.handleModelChange}>
+            </FroalaEditor>
+          </div>
+          <div class="editor-button">
+          </div>
+        </div> */}
+        <div className="message-input">
+          <div className="wrap">
+          <FroalaEditor tag='textarea' options={this.options} config={this.config} model={this.state.model}
+              onModelChange={this.handleModelChange}>
+            </FroalaEditor>
+            <button onClick={this.sendMessage} class="send-button"><i className="fa fa-paper-plane" aria-hidden="true"></i></button>
+          </div>
+        </div>
       </div>
+
     );
   }
 }
