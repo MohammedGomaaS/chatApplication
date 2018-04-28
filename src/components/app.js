@@ -1,6 +1,7 @@
 import React from 'react';
 import ChatDetails from './chat-details';
 import ChatList from './chat-list';
+import EditorComponent from './test';
 //import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import data from '../data';
 class App extends React.Component {
@@ -32,9 +33,10 @@ class App extends React.Component {
 
     return (
       <div className="container">
-      {alert(this.state.isLoaded)}
+    
         <ChatList chatList={this.chatList} handler={this.handler.bind(this)} />
         <ChatDetails chatIndex={this.currentChatIndex} />
+       
 
       </div>
     );
